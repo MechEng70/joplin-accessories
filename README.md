@@ -37,6 +37,9 @@ All three tools share the same `.env` file for API keys and write into Joplin vi
 - Google Cloud project with Gmail API enabled
 - OAuth2 `credentials.json` downloaded from Google Cloud Console (Desktop app type)
 
+### Joplin Task Sync
+- **YesYouKan** Joplin plugin — required to render kanban boards. Install via Joplin: Tools → Options → Plugins → search "YesYouKan" → Install.
+
 ---
 
 ## Configuration
@@ -183,7 +186,7 @@ The app works at the root notebook level. You select which of your top-level Jop
 2. Passes note content to Claude for task extraction — identifying owners, due dates, and source context.
 3. Writes or updates two notes inside each root notebook:
    - **Task List** — a flat markdown list of all active tasks, grouped by source note, with links back to the originating meeting note.
-   - **Kanban Board** — a kanban-formatted note with tasks organized into columns (e.g. To Do, In Progress, Done), each card showing the task, due date, and source note link.
+   - **Kanban Board** — a kanban-formatted note rendered by the **YesYouKan** Joplin plugin, with tasks organized into columns (e.g. To Do, In Progress, Done), each card showing the task, due date, and source note link.
 
 Task state is tracked between runs so tasks are not duplicated and completed items can be marked done. Root notebooks you want to exclude (Personal, Trash, etc.) are configurable in the UI settings panel.
 
