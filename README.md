@@ -95,15 +95,21 @@ cd meeting-recorder\windows
 ```
 
 ### Summary Profiles
-`profiles.json` ships with 5 built-in locked profiles. Custom profiles can be added via the UI.
+`profiles.json` ships with 9 built-in locked profiles. Custom profiles can be added via the UI.
+
+![Manage Profiles](docs/images/meeting-recorder-profiles.png)
 
 | Profile | Description |
 |---|---|
 | Medical Device Meeting | Regulatory and technical meeting notes |
+| General Meeting | General purpose meeting summary |
+| Video / Content Summary | Summarize recorded video or content |
 | Client Call | Client engagement summary |
+| LinkedIn — MedTech | MedTech-focused LinkedIn post |
+| LinkedIn — General | General professional LinkedIn post |
+| Meeting - Bee General | Beekeeping-specific meeting notes |
+| Transcribe Only | Transcription with no AI summarization |
 | IP Assessment | Intellectual property review notes |
-| LinkedIn Post (Standard) | General professional post |
-| LinkedIn Post (Technical) | Technical audience post |
 
 ### Usage
 1. Launch **Meeting Recorder** from the COSMIC app launcher.
@@ -146,8 +152,14 @@ bash install.sh
 2. Launch **Gmail → Joplin Sync** from the COSMIC app launcher.
 3. The status strip at the top shows connection state for Gmail, Joplin, and Claude.
 4. Click **Authenticate Gmail** — your browser opens for the Google OAuth flow. Sign in and approve access. The token saves to `~/.config/gmail-to-joplin/token.json` and is reused on all future runs.
-5. Click the **gear icon** (top-right) and paste your Joplin Web Clipper token.
+5. Click the **gear icon** (top-right) to open Settings. Paste your Joplin Web Clipper token and configure any subject keywords you want to skip.
+
+![Gmail → Joplin Settings](docs/images/gmail-joplin-settings.png)
+
 6. Click **Map Labels** — assign a Joplin notebook to each Gmail label you want to sync. Check **Always** for labels you want pre-selected on every run.
+
+![Map Gmail Labels → Joplin Notebooks](docs/images/gmail-joplin-mapping.png)
+
 7. Click **Process Emails** to run the sync.
 
 ### Resetting Sync State
