@@ -78,6 +78,8 @@ bash install_all.sh gmail tasks  # Multiple tools
 
 ## Meeting Recorder
 
+![Meeting Recorder](docs/images/meeting-recorder.png)
+
 Records microphone and system audio simultaneously, transcribes via faster-whisper (large-v3, CUDA), summarizes via Claude, and saves structured notes directly to a Joplin notebook. Supports back-to-back job queuing, crash recovery, summary profiles, and live GPU monitoring.
 
 ### Install (Linux)
@@ -129,6 +131,8 @@ Pending jobs (WAV + JSON sidecars) are stored in the `pending/` subdirectory and
 
 ## Gmail → Joplin Sync
 
+![Gmail → Joplin Sync](docs/images/gmail-joplin-sync.png)
+
 Connects to Gmail via Google OAuth2 and syncs email threads to Joplin notebooks. Each thread becomes a structured note containing the subject, participants, date, body text, and a direct link back to Gmail. Label-to-notebook mapping is configured in the app UI. Processed thread state is tracked locally so threads are not duplicated on subsequent runs.
 
 ### Install
@@ -170,6 +174,8 @@ echo '{"processed_threads": {}, "last_run": null}' > ~/.local/share/gmail-to-jop
 ---
 
 ## Joplin Task Sync
+
+![Joplin Task Sync - Kanban Board](docs/images/joplin-task-kanban.png)
 
 Scans Joplin meeting notes for action items using Claude and automatically generates two views per selected notebook: a flat **Task List** and a **Kanban Board**. Both are written as live Joplin notes that update every time a sync runs. Designed to run after Meeting Recorder sessions to keep follow-up items tracked without manual re-entry.
 
