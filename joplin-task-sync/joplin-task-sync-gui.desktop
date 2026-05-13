@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Joplin Task Sync
+Comment=Extract and sync tasks from Joplin meeting notes
+Exec=APP_DIR/joplin_task_sync_launch.sh
+Icon=com.fractionalmedtech.joplin-task-sync-gui
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupWMClass=com.fractionalmedtech.joplin-task-sync-gui

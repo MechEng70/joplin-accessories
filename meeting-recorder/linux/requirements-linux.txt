@@ -1,0 +1,9 @@
+# Meeting Recorder - Linux (Fedora 43 / COSMIC)
+# GTK4 is a system package; install via: sudo dnf install python3-gobject gtk4
+# CUDA 12.x required for faster-whisper GPU support
+
+faster-whisper
+anthropic
+pynvml
+requests
+python-dotenv

@@ -1,0 +1,10 @@
+# Meeting Recorder - Linux (Fedora 43 / COSMIC)
+# GTK4: sudo dnf install python3-gobject gtk4
+# ffmpeg: sudo dnf install ffmpeg
+# CUDA 12.x required for faster-whisper GPU support
+
+faster-whisper
+anthropic
+pynvml
+requests
+python-dotenv

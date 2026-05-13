@@ -1,0 +1,10 @@
+# Gmail → Joplin Sync - Linux (Fedora 43 / COSMIC)
+# GTK4: sudo dnf install python3-gobject gtk4
+
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+anthropic
+requests
+python-dotenv

@@ -1,0 +1,38 @@
+# Secrets - never commit these
+.env
+
+# Meeting recorder runtime data
+pending/
+*.wav
+*.json.sidecar
+meeting_recorder.log
+
+# Gmail sync runtime data
+token.json
+
+# Task sync runtime data
+sync.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*_launch.sh

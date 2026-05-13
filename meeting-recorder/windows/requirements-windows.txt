@@ -1,0 +1,12 @@
+# Meeting Recorder - Windows
+# Requires Python 3.11 or 3.12 (NOT 3.14 - nvidia pip wheels unsupported)
+# Requires CUDA 12.x (NOT 13.x) for ctranslate2 4.7.1 GPU support
+# Install CUDA 12 toolkit before running pip install
+
+faster-whisper
+ctranslate2==4.7.1
+anthropic
+pyaudiowpatch
+pynvml
+requests
+python-dotenv

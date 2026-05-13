@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Gmail → Joplin Sync
+Comment=Sync Gmail threads to Joplin notebooks
+Exec=APP_DIR/gmail_joplin_launch.sh
+Icon=com.fractionalmedtech.gmail-joplin-sync
+Terminal=false
+Type=Application
+Categories=Utility;Network;
+StartupWMClass=com.fractionalmedtech.gmail-joplin-sync

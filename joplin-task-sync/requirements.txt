@@ -1,0 +1,6 @@
+# Joplin Task Sync - Linux (Fedora 43 / COSMIC)
+# GTK4: sudo dnf install python3-gobject gtk4
+
+anthropic
+requests
+python-dotenv
