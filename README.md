@@ -168,7 +168,7 @@ echo '{"processed_threads": {}, "last_run": null}' > ~/.local/share/gmail-to-jop
 
 ## Joplin Task Sync
 
-Scans Joplin meeting notes for action items and tasks using Claude, then syncs them to a designated task list or kanban board notebook within Joplin. Designed to run after Meeting Recorder sessions to automatically extract and track follow-up items without manual re-entry.
+Scans Joplin meeting notes for action items using Claude and automatically generates two views per selected notebook: a flat **Task List** and a **Kanban Board**. Both are written as live Joplin notes that update every time a sync runs. Designed to run after Meeting Recorder sessions to keep follow-up items tracked without manual re-entry.
 
 ### Install
 ```bash
@@ -176,15 +176,24 @@ cd joplin-task-sync
 bash install.sh
 ```
 
+### How It Works
+The app works at the root notebook level. You select which of your top-level Joplin notebooks to include in the roll-up (e.g. a client engagement notebook, a project notebook). For each selected root notebook, the sync:
+
+1. Recursively scans all notes in that notebook and its sub-notebooks for action items and tasks.
+2. Passes note content to Claude for task extraction — identifying owners, due dates, and source context.
+3. Writes or updates two notes inside each root notebook:
+   - **Task List** — a flat markdown list of all active tasks, grouped by source note, with links back to the originating meeting note.
+   - **Kanban Board** — a kanban-formatted note with tasks organized into columns (e.g. To Do, In Progress, Done), each card showing the task, due date, and source note link.
+
+Task state is tracked between runs so tasks are not duplicated and completed items can be marked done. Root notebooks you want to exclude (Personal, Trash, etc.) are configurable in the UI settings panel.
+
 ### First Run
 1. Launch **Joplin Task Sync** from the COSMIC app launcher.
-2. Confirm `JOPLIN_TOKEN` and `ANTHROPIC_API_KEY` are set in `~/Applications/MeetingGui/.env` — the status strip shows connection state for both.
-3. Select the source notebooks to scan (your meeting note notebooks).
-4. Select the target task list or kanban board notebook.
-5. Click **Sync Tasks** to run extraction.
-
-### How It Works
-The app reads notes from the selected source notebooks, passes the content to Claude with a task-extraction prompt, and writes identified tasks as structured notes into the target notebook. Task state is tracked so items are not duplicated on subsequent runs. Excluded root notebooks (e.g. Personal, Trash) are configurable in the UI settings.
+2. The status strip confirms connectivity to Joplin and Claude.
+3. Open **Settings** and confirm any root notebooks you want excluded from the roll-up.
+4. Select the root notebooks to include using the notebook selector.
+5. Click **Sync Tasks** — the app scans, extracts, and writes the Task List and Kanban Board notes into each selected notebook.
+6. Open Joplin and navigate to any selected root notebook to see the generated views.
 
 ### Config & State Locations
 | Path | Purpose |
@@ -194,7 +203,8 @@ The app reads notes from the selected source notebooks, passes the content to Cl
 
 ### Troubleshooting
 - **"Joplin: not reachable"** — Joplin desktop must be open with Web Clipper enabled on port 41184.
-- **Tasks not appearing in target notebook** — Confirm the target notebook is not in the excluded root notebooks list.
+- **Tasks not appearing** — Confirm the target notebook is not in the excluded root notebooks list in Settings.
+- **Kanban board not updating** — Run sync again; the board note is fully rebuilt on every sync run.
 - **COSMIC launcher icon not showing** — Run `update-desktop-database ~/.local/share/applications/` and log out and back in.
 
 ---
